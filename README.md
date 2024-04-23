@@ -6,7 +6,10 @@
 - La till RecyclerView och gav den constraints och ID
 - La till layout-fil till recyclerview
 - La till java klass till recyclerview
-- La till arraylist Mountain
+- La till arraylist med egna strängar
+- Skapade en adapter
+- Fixade allt som krävdes för att få arrayen att visas i recyclerview med egen data
+- 
 
 _Du kan ta bort all text som finns sedan tidigare_.
 

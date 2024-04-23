@@ -49,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textView = textView.findViewById(R.id.textView);
+            textView = itemView.findViewById(R.id.textView);
         }
     }
 }
