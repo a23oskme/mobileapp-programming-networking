@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -22,11 +24,24 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        RecyclerView recyclerView =findViewById(R.id.myRecyclerView);
+
+        setUpMyRecyclerView();
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, minTestText);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         new JsonFile(this, this).execute(JSON_FILE);
     }
 
     private void setUpMyRecyclerView() {
         String[] testTexter = getResources().getStringArray(R.array.test_texter);
+
+        for (int i = 0; i<testTexter.length; i++) {
+            minTestText.add(new MyRecyclerView(testTexter[i]));
+        }
+
     }
 
     @Override
