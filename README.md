@@ -4,7 +4,9 @@
 **Skriv din rapport här!**
 
 - La till RecyclerView och gav den constraints och ID
-- 
+- La till layout-fil till recyclerview
+- La till java klass till recyclerview
+- La till arraylist Mountain
 
 _Du kan ta bort all text som finns sedan tidigare_.
 
