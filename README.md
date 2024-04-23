@@ -3,6 +3,9 @@
 
 **Skriv din rapport här!**
 
+- La till RecyclerView och gav den constraints och ID
+- 
+
 _Du kan ta bort all text som finns sedan tidigare_.
 
 ## Följande grundsyn gäller dugga-svar:
