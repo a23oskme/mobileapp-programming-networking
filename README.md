@@ -11,6 +11,8 @@
 - Fixade allt som krävdes för att få arrayen att visas i recyclerview med egen data
 - La till arrayList Mountain, och dess class
 
+- La till adapter.notifyDataSetChanged();
+
 _Du kan ta bort all text som finns sedan tidigare_.
 
 ## Följande grundsyn gäller dugga-svar:

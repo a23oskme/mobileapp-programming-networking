@@ -18,12 +18,6 @@ public class Mountain {
         height = h;
     }
 
-    public String info() {
-        String tmp = new String();
-        tmp+=name +  " hittas i " + location + " och är " + height + " meter över havet.";
-        return tmp;
-    }
-
     @Override
     public String toString() {
         return "Mountain{" +

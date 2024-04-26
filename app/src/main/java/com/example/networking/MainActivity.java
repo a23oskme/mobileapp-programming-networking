@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -24,18 +28,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView =findViewById(R.id.myRecyclerView);
-
         //mountainList.add(new Mountain("Hej", "Hejsan!", 2));
         //mountainList.add(new Mountain("Nytt", "Hejdå!", 4));
 
         setUpMyRecyclerView();
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mountainList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        new JsonFile(this, this).execute(JSON_FILE);
+
+        //new JsonFile(this, this).execute(JSON_FILE);
         new JsonTask(this).execute(JSON_URL);
     }
 
@@ -51,14 +51,34 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     @Override
     public void onPostExecute(String json) {
 
-        JSONArray JSONArray = jsonArr = new JSONArray(json);
+        try {
+            JSONArray jsonArr = new JSONArray(json);
+            RecyclerView recyclerView =findViewById(R.id.myRecyclerView);
 
 
-        ArrayList<Mountain> mountainList = new ArrayList<>();
+            ArrayList<Mountain> mountainList = new ArrayList<>();
 
-        Log.d("MainActivity", json);
-        for (int i = 0; i < mountainList.size; i++) {
+            Log.d("MainActivity", json);
+            for (int i = 0; i < jsonArr.length(); i++) {
+                JSONObject jsonObj = jsonArr.getJSONObject(i);
 
+                String name = jsonObj.getString("name");
+                String location = jsonObj.getString("location");
+                int height = jsonObj.getInt("size");
+
+                mountainList.add(new Mountain(name, location, height));
+
+            }
+
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mountainList);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            // datan har ändrats
+            adapter.notifyDataSetChanged();
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
     }
 

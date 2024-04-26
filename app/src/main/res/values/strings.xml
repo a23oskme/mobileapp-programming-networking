@@ -1,11 +1,4 @@
 <resources>
     <string name="app_name">Networking</string>
 
-    <string-array name="test_texter">
-        <item>HEJSAN</item>
-        <item>En text</item>
-        <item>En till text</item>
-        <item>Flera texter!</item>
-        <item>Och en sista text</item>
-    </string-array>
 </resources>
