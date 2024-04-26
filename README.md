@@ -9,7 +9,7 @@
 - La till arraylist med egna strängar
 - Skapade en adapter
 - Fixade allt som krävdes för att få arrayen att visas i recyclerview med egen data
-- 
+- La till arrayList Mountain, och dess class
 
 _Du kan ta bort all text som finns sedan tidigare_.
 

@@ -15,11 +15,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     Context context;
-    ArrayList<MyRecyclerView> minTestText;
+    ArrayList<Mountain> mountainList;
 
-    public RecyclerViewAdapter(Context context, ArrayList<MyRecyclerView> minTestText) {
+    public RecyclerViewAdapter(Context context, ArrayList<Mountain> mountainList) {
         this.context = context;
-        this.minTestText = minTestText;
+        this.mountainList = mountainList;
     }
 
     @NonNull
@@ -32,24 +32,31 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder myViewHolder, int i) {
-        myViewHolder.textView.setText(minTestText.get(myViewHolder.getAdapterPosition()).getTestText());
+    public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder myViewHolder, int position) {
+        myViewHolder.textView.setText(mountainList.get(position).getName());
+        myViewHolder.locationView.setText(mountainList.get(position).getLocation());
+        myViewHolder.heightView.setText(mountainList.get(position).getHeight().toString());
     }
 
     @Override
     public int getItemCount() {
-        return minTestText.size();
+        return mountainList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView textView;
+        TextView locationView;
+        TextView heightView;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.textView);
+            locationView = itemView.findViewById(R.id.locationView);
+            heightView = itemView.findViewById(R.id.heightView);
+
         }
     }
 }
