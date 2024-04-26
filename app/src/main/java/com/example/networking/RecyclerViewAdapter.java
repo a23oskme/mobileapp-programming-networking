@@ -35,7 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder myViewHolder, int position) {
         myViewHolder.textView.setText(mountainList.get(position).getName());
         myViewHolder.locationView.setText(mountainList.get(position).getLocation());
-        myViewHolder.heightView.setText(mountainList.get(position).getHeight().toString());
+        myViewHolder.heightView.setText(mountainList.get(position).getHeight());
     }
 
     @Override

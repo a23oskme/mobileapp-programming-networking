@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         RecyclerView recyclerView =findViewById(R.id.myRecyclerView);
 
-        ArrayList<Mountain> mountainList = new ArrayList<>();
-        mountainList.add(new Mountain("Hej", "Hejsan!", 2));
+        //mountainList.add(new Mountain("Hej", "Hejsan!", 2));
+        //mountainList.add(new Mountain("Nytt", "Hejdå!", 4));
 
         setUpMyRecyclerView();
 
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         new JsonFile(this, this).execute(JSON_FILE);
+        new JsonTask(this).execute(JSON_URL);
     }
 
     private void setUpMyRecyclerView() {
@@ -49,7 +50,17 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
+
+        JSONArray JSONArray = jsonArr = new JSONArray(json);
+
+
+        ArrayList<Mountain> mountainList = new ArrayList<>();
+
         Log.d("MainActivity", json);
+        for (int i = 0; i < mountainList.size; i++) {
+
+        }
     }
+
 
 }
