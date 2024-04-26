@@ -27,25 +27,25 @@ public class Mountain {
                 '}';
     }
 
-    public void setName(String n) {
+    /*public void setName(String n) {
         name = n;
-    }
+    }*/
 
     public String getName() {
         return name;
     }
 
-    public void setLocation(String l) {
+    /*public void setLocation(String l) {
         location = l;
-    }
+    }*/
 
     public String getLocation() {
         return location;
     }
 
-    public void setHeight(int h) {
+    /*public void setHeight(int h) {
         height = h;
-    }
+    }*/
 
     public String getHeight() {
         return ""+height;
